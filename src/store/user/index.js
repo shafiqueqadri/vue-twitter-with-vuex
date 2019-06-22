@@ -6,10 +6,12 @@ let state = {
 
 const mutations = {
   [type.SAVE] (state, { payload }) {
-    state = {...payload, loggedIn: true}
+    state.email = payload.email;
+    state.loggedIn = true;
+    
   },
   [type.REMOVE] (state) {
-    state = {loggedIn: false}
+    state.loggedIn = false
   }
 }
 export default {

@@ -17,14 +17,16 @@ export default {
         ...mapState(['user'])
     },
     mounted () {
-        console.log(this.use)
+        // firebase.auth().signOut()
     },
     methods: {
         ...mapActions(['removeUser']),
         logout () {
-            firebase.auth().signOut();
-            this.removeUser();
-            this.$router.replace('/')
+            firebase.auth().signOut().then(() => {
+                this.$router.push({name: 'signin'})
+                this.removeUser();
+            });
+            
         }
     }
 }

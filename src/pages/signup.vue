@@ -11,7 +11,7 @@
 
  <script>
 import firebase from 'firebase';
-
+import { mapActions } from 'vuex';
 export default {
     name: 'signUp',
     data() {
@@ -22,12 +22,14 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['addUser']),
         signUp: function() {
             this.wait = true;
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-                (user) => {
+                ({user}) => {
                     this.wait = false;
-                    this.$router.replace('home')
+                    this.addUser({email: user.email});
+                    this.$router.replace('home');
                 },
                 (err) => {
                     this.wait = false;
