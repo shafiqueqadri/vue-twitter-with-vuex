@@ -35,6 +35,14 @@ const router = new Router({
             meta: {
                 requiresAuth: true
             }
+        },
+        {
+            path: '/tweets',
+            name: 'tweets',
+            component: () => import('@/pages/tweets'),
+            meta: {
+                requiresAuth: true
+            }
         }
     ]
 });

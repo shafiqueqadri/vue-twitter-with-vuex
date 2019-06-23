@@ -1,0 +1,12 @@
+.margin-auto {
+    margin: auto;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+.float {
+    right: 100px;
+    bottom: 100px;
+    position: fixed;
+}
